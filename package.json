@@ -1,0 +1,9 @@
+{
+  "name": "thecerfreport",
+  "version": "1.0.0",
+  "description": "The Cerf Report — thecerfreport.com",
+  "private": true,
+  "dependencies": {
+    "@netlify/functions": "^2.0.0"
+  }
+}
