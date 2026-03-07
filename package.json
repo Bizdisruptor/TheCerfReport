@@ -1,8 +1,0 @@
-{
-  "name": "daily-news-functions",
-  "version": "1.0.0",
-  "description": "Dependencies for Netlify functions",
-  "dependencies": {
-    "node-fetch": "^2.6.7"
-  }
-}
