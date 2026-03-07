@@ -261,11 +261,11 @@
     <div class="masthead-bottom">
       <div class="podcast-row">
         <span class="podcast-label">Listen on</span>
-        <a href="https://open.spotify.com/show/your-show-id" class="podcast-btn spotify" target="_blank" rel="noopener" aria-label="Listen on Spotify">
+        <a href="https://open.spotify.com/show/0fZLvBdnAtQrzPmSao0hBY" class="podcast-btn spotify" target="_blank" rel="noopener" aria-label="Listen on Spotify">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
           Spotify
         </a>
-        <a href="https://podcasts.apple.com/podcast/id-your-podcast" class="podcast-btn apple" target="_blank" rel="noopener" aria-label="Listen on Apple Podcasts">
+        <a href="https://podcasts.apple.com/us/podcast/the-cerf-report/id1837946735" class="podcast-btn apple" target="_blank" rel="noopener" aria-label="Listen on Apple Podcasts">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.5c2.07 0 3.983.624 5.578 1.693l-1.342 1.342A7.473 7.473 0 0012 6.75 7.476 7.476 0 004.5 12c0 1.28.322 2.485.887 3.536L4.04 16.883A9.932 9.932 0 012.25 12C2.25 7.444 6.444 3.25 12 4.5zm0 2.25a5.25 5.25 0 110 10.5A5.25 5.25 0 0112 6.75zm0 2.25a3 3 0 100 6 3 3 0 000-6zm0 1.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>
           Apple Podcasts
         </a>
@@ -291,6 +291,7 @@
 <nav class="site-nav" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="/" class="nav-brand" aria-current="page">The Cerf <span>Report</span></a>
+    <a href="/about/" class="nav-link" style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,240,232,0.6);text-decoration:none;padding:14px 14px;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.15s ease;">About</a>
     <form class="nav-search-form" action="/" method="get" role="search" aria-label="Search articles" id="nav-search-form">
       <span class="nav-search-icon" aria-hidden="true">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -412,6 +413,7 @@
       <a href="https://www.thecerfreport.com" class="footer-link">TheCerfReport.com</a>
       <a href="https://thecerfreport.substack.com" class="footer-link">Substack</a>
       <a href="https://x.com/TheCerfReport" class="footer-link">@TheCerfReport</a>
+      <a href="/about/" class="footer-link">About</a>
     </div>
   </div>
 </footer>
@@ -586,8 +588,8 @@
           <div class="episode-title">${escHtml(ep.title)}</div>
           <div class="episode-date">${formatDate(ep.date)}</div>
           <div class="episode-links">
-            <a href="https://open.spotify.com/show/your-show-id" class="ep-link sp" target="_blank" rel="noopener">Spotify</a>
-            <a href="https://podcasts.apple.com/podcast/id-your-podcast" class="ep-link ap" target="_blank" rel="noopener">Apple</a>
+            <a href="https://open.spotify.com/show/0fZLvBdnAtQrzPmSao0hBY" class="ep-link sp" target="_blank" rel="noopener">Spotify</a>
+            <a href="https://podcasts.apple.com/us/podcast/the-cerf-report/id1837946735" class="ep-link ap" target="_blank" rel="noopener">Apple</a>
             <a href="${escHtml(ep.url)}" class="ep-link sub" target="_blank" rel="noopener">Substack</a>
           </div>
         </div>`).join('')
