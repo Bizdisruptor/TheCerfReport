@@ -651,7 +651,7 @@
       });
       if (res.ok) {
         btn.textContent = '✓';
-        if (msgEl) { msgEl.textContent = 'You're in — check your inbox!'; msgEl.className = 'sub-msg ok'; }
+        if (msgEl) { msgEl.textContent = "You're in \u2014 check your inbox!"; msgEl.className = 'sub-msg ok'; }
         // Show toast for nav form (no msgEl)
         if (!msgEl) {
           const t = document.getElementById('copy-toast');
