@@ -1,9 +1,0 @@
-# Main netlify subdomain → apex
-https://cerfreportnews.netlify.app/*     https://thecerfreport.com/:splat   301!
-
-# ANY deploy preview / branch subdomain (prefix before `--`)
-https://*--cerfreportnews.netlify.app/*  https://thecerfreport.com/:splat   301!
-
-# Also catch plain hosts without trailing slash
-https://cerfreportnews.netlify.app       https://thecerfreport.com          301!
-https://*--cerfreportnews.netlify.app    https://thecerfreport.com          301!
