@@ -1,18 +1,14 @@
 # robots.txt for TheCerfReport.com
 User-agent: *
 Allow: /
+Sitemap: https://www.thecerfreport.com/sitemap.xml
 
-Sitemap: https://thecerfreport.com/sitemap.xml
-
-# AI crawlers (optional, but aligns with your goal)
+# AI crawlers
 User-agent: GPTBot
 Allow: /
-
 User-agent: ChatGPT-User
 Allow: /
-
 User-agent: PerplexityBot
 Allow: /
-
 User-agent: Google-Extended
 Allow: /
