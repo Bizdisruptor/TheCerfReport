@@ -468,12 +468,12 @@
 
   // Filter bar topic chips
   document.getElementById('topic-chips').innerHTML = sortedTopics.map(([t,c])=>
-    `<button class="filter-chip" data-topic="${escHtml(t)}" aria-pressed="false">${escHtml(t)} <span class="chip-count">${c}</span></button>`
+    `<button class="filter-chip" data-topic="${t}" aria-pressed="false">${escHtml(t)} <span class="chip-count">${c}</span></button>`
   ).join('');
 
   // Sidebar topic chips
   document.getElementById('topic-grid').innerHTML = sortedTopics.map(([t,c])=>
-    `<button class="topic-chip" data-topic="${escHtml(t)}" aria-pressed="false">${escHtml(t)}<span class="chip-count">${c}</span></button>`
+    `<button class="topic-chip" data-topic="${t}" aria-pressed="false">${escHtml(t)}<span class="chip-count">${c}</span></button>`
   ).join('');
 
   function getFiltered() {
