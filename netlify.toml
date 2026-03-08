@@ -2,12 +2,12 @@
   functions = "netlify/functions"
   edge_functions = "netlify/edge-functions"
 
-# Redirect bare /about to trailing slash
+# Redirect bare /about to trailing slash (force=false prevents redirect loop)
 [[redirects]]
   from = "/about"
   to = "/about/"
   status = 301
-  force = true
+  force = false
 
 # Security headers
 [[headers]]
