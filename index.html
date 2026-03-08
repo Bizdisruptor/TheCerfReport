@@ -58,6 +58,8 @@
     }
     html { font-size: 16px; scroll-behavior: smooth; }
     body { background: var(--paper); color: var(--ink); font-family: var(--serif); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--signal); }
+    a:hover { color: var(--signal-dark); }
 
     .top-rule { height: 4px; background: linear-gradient(90deg, var(--signal) 0%, var(--gold) 60%, var(--signal) 100%); }
 
@@ -86,21 +88,14 @@
     .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; }
     .nav-brand { font-family: var(--display); font-size: 15px; font-weight: 700; color: rgba(245,240,232,0.8); text-decoration: none; padding: 14px 0; letter-spacing: -0.01em; white-space: nowrap; margin-right: 8px; }
     .nav-brand span { color: var(--signal); }
-    .nav-search-form { margin-left: auto; margin-right: 12px; position: relative; display: flex; align-items: center; }
-    .nav-search-input { font-family: var(--mono); font-size: 11px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 3px; color: var(--cream); padding: 6px 32px 6px 28px; width: 200px; outline: none; transition: all 0.18s ease; }
-    .nav-search-input::placeholder { color: rgba(245,240,232,0.35); }
-    .nav-search-input:focus { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); width: 260px; }
-    .nav-search-icon { position: absolute; left: 8px; color: rgba(245,240,232,0.4); pointer-events: none; display: flex; align-items: center; }
-    .nav-search-kbd { position: absolute; right: 7px; font-family: var(--mono); font-size: 9px; color: rgba(245,240,232,0.25); pointer-events: none; transition: opacity 0.15s ease; }
+    .nav-search-form { margin-left: auto; position: relative; display: flex; align-items: center; }
+    .nav-search-input { font-family: var(--mono); font-size: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 3px; color: var(--cream); padding: 8px 36px 8px 36px; width: 280px; outline: none; transition: all 0.2s ease; }
+    .nav-search-input::placeholder { color: rgba(245,240,232,0.5); }
+    .nav-search-input:focus { background: rgba(255,255,255,0.15); border-color: var(--signal); width: 360px; box-shadow: 0 0 0 2px rgba(200,57,26,0.2); }
+    .nav-search-icon { position: absolute; left: 10px; color: rgba(245,240,232,0.6); pointer-events: none; display: flex; align-items: center; }
+    .nav-search-kbd { position: absolute; right: 10px; font-family: var(--mono); font-size: 10px; color: rgba(245,240,232,0.35); pointer-events: none; background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.12); transition: opacity 0.15s ease; }
     .nav-search-input:focus ~ .nav-search-kbd { opacity: 0; }
-    .nav-sub-form { display: flex; align-items: center; gap: 5px; margin-left: 12px; }
-    .nav-sub-email { font-family: var(--mono); font-size: 11px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; color: var(--cream); padding: 6px 10px; width: 170px; outline: none; transition: all 0.18s ease; }
-    .nav-sub-email::placeholder { color: rgba(245,240,232,0.3); }
-    .nav-sub-email:focus { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); }
-    .nav-sub-btn { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--signal); color: #fff; border: none; border-radius: 3px; padding: 7px 13px; cursor: pointer; white-space: nowrap; transition: background 0.15s ease; }
-    .nav-sub-btn:hover { background: var(--signal-dark); }
-    .nav-sub-btn:disabled { background: #888; cursor: default; }
-    @media (max-width: 900px) { .nav-sub-form { display: none; } }
+    @media (max-width: 600px) { .nav-search-form { display: none; } }
 
     /* FILTER BAR */
     .filter-bar { background: var(--cream); border-bottom: 1px solid var(--rule); position: sticky; top: 49px; z-index: 90; }
@@ -299,10 +294,7 @@
       <input class="nav-search-input" id="nav-search-input" type="search" name="q" placeholder="Search archive…" aria-label="Search articles" autocomplete="off">
       <span class="nav-search-kbd" aria-hidden="true">/</span>
     </form>
-    <form class="nav-sub-form" id="nav-sub-form" aria-label="Subscribe">
-      <input class="nav-sub-email" id="nav-sub-email" type="email" name="email" placeholder="your@email.com" aria-label="Email address" required autocomplete="email">
-      <button class="nav-sub-btn" type="submit">Subscribe</button>
-    </form>
+
   </div>
 </nav>
 
@@ -397,7 +389,7 @@
     <div>
       <div class="about-stat-grid">
         <div class="about-stat"><div class="stat-num" id="stat-articles">—</div><div class="stat-label">Essays</div></div>
-        <div class="about-stat"><div class="stat-num" id="stat-episodes">—</div><div class="stat-label">Episodes</div></div>
+        <div class="about-stat"><div class="stat-num" id="stat-episodes">—</div><div class="stat-label">Podcast Episodes</div></div>
         <div class="about-stat"><div class="stat-num">8</div><div class="stat-label">Topics</div></div>
         <div class="about-stat"><div class="stat-num">1yr</div><div class="stat-label">Publishing</div></div>
       </div>
@@ -588,7 +580,13 @@
   // Events
   document.addEventListener('click', function(e) {
     const chip = e.target.closest('[data-topic]');
-    if (chip) { state.topic = chip.dataset.topic; state.page = 1; render(); }
+    if (chip) {
+      // Decode any HTML entities in data-topic value
+      const ta = document.createElement('textarea');
+      ta.innerHTML = chip.dataset.topic;
+      state.topic = ta.value;
+      state.page = 1; render();
+    }
   });
   document.querySelectorAll('.type-filter').forEach(btn => {
     btn.addEventListener('click', function() {
@@ -681,16 +679,7 @@
     });
   }
 
-  // Nav form
-  const navSubForm = document.getElementById('nav-sub-form');
-  if (navSubForm) {
-    navSubForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = document.getElementById('nav-sub-email').value.trim();
-      const btn = this.querySelector('button');
-      if (email) submitEmail(email, null, btn);
-    });
-  }
+
 
 })();
 </script>
