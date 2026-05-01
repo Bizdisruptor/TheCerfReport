@@ -9,15 +9,6 @@
   status = 301
   force = false
 
-# Articles data — now served by the articles.js Netlify Function which
-# pulls live from the Substack RSS feed. The path /data/articles.json
-# is preserved so the prerender edge function and homepage JS keep working
-# without modification.
-[[redirects]]
-  from = "/data/articles.json"
-  to = "/.netlify/functions/articles"
-  status = 200
-  force = true
 
 # Security headers
 [[headers]]
