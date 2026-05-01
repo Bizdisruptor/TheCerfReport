@@ -2,15 +2,12 @@
   functions = "netlify/functions"
   edge_functions = "netlify/edge-functions"
 
-# Redirect bare /about to trailing slash (force=false prevents redirect loop)
 [[redirects]]
   from = "/about"
   to = "/about/"
   status = 301
   force = false
 
-
-# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -19,8 +16,6 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Cache articles data — 10 minute browser cache; the function itself sets
-# stale-while-revalidate so refreshes feel instant.
 [[headers]]
   for = "/data/articles.json"
   [headers.values]
@@ -28,7 +23,6 @@
     Access-Control-Allow-Origin = "*"
     Content-Type = "application/json; charset=utf-8"
 
-# Edge function for homepage pre-rendering
 [[edge_functions]]
   path = "/"
   function = "prerender"
