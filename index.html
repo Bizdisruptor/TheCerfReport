@@ -100,7 +100,7 @@
     :root {
       --ink: #0f0e0d; --ink-2: #2a2825; --ink-3: #4a4845;
       --rule: #d4c9b8; --cream: #f5f0e8; --paper: #faf8f4;
-      --signal: #c8391a; --signal-dark: #9e2b12; --gold: #b8922a; --green: #1a7a3a;
+      --signal: #c8391a; --signal-dark: #9e2b12; --gold: #b8922a; --gold-dark: #9a7a22; --green: #1a7a3a;
       --mono: 'JetBrains Mono', monospace;
       --serif: 'Source Serif 4', Georgia, serif;
       --display: 'Playfair Display', Georgia, serif;
@@ -233,6 +233,24 @@
     .sub-msg { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; min-height: 16px; }
     .sub-msg.ok { color: var(--green); }
     .sub-msg.err { color: var(--signal); }
+
+    /* NEW: Buy Me a Coffee sidebar card — gold accent to differentiate from Subscribe (red) */
+    .sidebar-card.bmc-card { border-top: 3px solid var(--gold); }
+    .bmc-pitch { font-family: var(--serif); font-size: 14px; line-height: 1.55; color: var(--ink-2); margin-bottom: 14px; }
+    .bmc-pitch strong { font-weight: 600; color: var(--ink); }
+    .bmc-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 12px 16px;
+      background: var(--gold); color: #fff;
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border-radius: 3px; border: none;
+      transition: all 0.18s ease;
+    }
+    .bmc-btn:hover { background: var(--gold-dark); color: #fff; transform: translateY(-1px); box-shadow: 0 3px 10px rgba(184,146,42,0.25); }
+    .bmc-btn svg { flex-shrink: 0; }
+    .bmc-note { font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em; color: var(--ink-3); text-align: center; margin-top: 9px; }
+
     .episode-list { display: flex; flex-direction: column; gap: 12px; }
     .episode-item { padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
     .episode-item:last-child { border-bottom: none; padding-bottom: 0; }
@@ -278,9 +296,12 @@
     /* NEW: footer tagline — lets the signature line bookend the page */
     .footer-tagline { font-family: var(--display); font-style: italic; font-size: 13px; color: rgba(200,57,26,0.8); margin-bottom: 12px; letter-spacing: 0.02em; }
     .footer-text { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; line-height: 1.8; }
-    .footer-links { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .footer-links { margin-top: 12px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; align-items: center; }
     .footer-link { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: rgba(245,240,232,0.35); text-decoration: none; text-transform: uppercase; }
     .footer-link:hover { color: rgba(245,240,232,0.7); }
+    /* NEW: gold-accent footer BMC link — visually distinct from regular footer links */
+    .footer-link.bmc { color: var(--gold); border: 1px solid rgba(184,146,42,0.4); padding: 6px 12px; border-radius: 3px; transition: all 0.15s ease; }
+    .footer-link.bmc:hover { background: var(--gold); color: #0a0908; border-color: var(--gold); }
 
     .skeleton { background: linear-gradient(90deg, var(--rule) 25%, rgba(212,201,184,0.4) 50%, var(--rule) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 3px; }
     @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
@@ -498,6 +519,24 @@
         </form>
         <p class="subscribe-note">Free. No spam. Unsubscribe anytime.</p>
       </div>
+
+      <!-- NEW: Buy Me a Coffee card. Gold accent differentiates from Subscribe (red). -->
+      <div class="sidebar-card bmc-card">
+        <div class="sidebar-card-title">Support the Work</div>
+        <p class="bmc-pitch">No ads. No paywalls. No outside agenda. <strong>If The Cerf Report is worth something to you, leave a tip.</strong></p>
+        <a href="https://buy.stripe.com/6oE6oCaWY7eHfyEbII" class="bmc-btn" target="_blank" rel="noopener" aria-label="Buy me a coffee — open Stripe payment">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+            <line x1="6" y1="2" x2="6" y2="4"/>
+            <line x1="10" y1="2" x2="10" y2="4"/>
+            <line x1="14" y1="2" x2="14" y2="4"/>
+          </svg>
+          Buy Me a Coffee
+        </a>
+        <p class="bmc-note">One-time tip · Secure payment via Stripe</p>
+      </div>
+
       <div class="sidebar-card">
         <div class="sidebar-card-title">Latest Episodes</div>
         <div class="episode-list" id="episode-list">
@@ -535,7 +574,7 @@
         <li><a href="https://thecerfreport.substack.com/p/the-strongman-myth-how-authoritarian">How a Blog Became a Blueprint for American Authoritarianism — May 24, 2025</a></li>
         <li><a href="https://thecerfreport.substack.com/p/the-constitutional-fault-line-executive">The Impoundment Control Act at Fifty — Oct 8, 2025</a></li>
       </ul>
-      <p style="margin-top:16px;font-size:0.85em;color:#888;">Follow <a href="https://x.com/TheCerfReport">@TheCerfReport</a> on X and <a href="https://bsky.app/profile/thecerfreport.bsky.social">Bluesky</a> | Listen on <a href="https://open.spotify.com/show/0fZLvBdnAtQrzPmSao0hBY">Spotify</a> and <a href="https://podcasts.apple.com/us/podcast/the-cerf-report/id1837946735">Apple Podcasts</a>.</p>
+      <p style="margin-top:16px;font-size:0.85em;color:#888;">Follow <a href="https://x.com/TheCerfReport">@TheCerfReport</a> on X and <a href="https://bsky.app/profile/thecerfreport.bsky.social">Bluesky</a> | Listen on <a href="https://open.spotify.com/show/0fZLvBdnAtQrzPmSao0hBY">Spotify</a> and <a href="https://podcasts.apple.com/us/podcast/the-cerf-report/id1837946735">Apple Podcasts</a>. <a href="https://buy.stripe.com/6oE6oCaWY7eHfyEbII">Buy me a coffee</a>.</p>
     </div>
   </noscript>
 </main>
@@ -576,6 +615,8 @@
       <a href="https://thecerfreport.substack.com" class="footer-link">Substack</a>
       <a href="https://x.com/TheCerfReport" class="footer-link">@TheCerfReport</a>
       <a href="/about/" class="footer-link">About</a>
+      <!-- NEW: gold-bordered BMC link in footer for redundancy -->
+      <a href="https://buy.stripe.com/6oE6oCaWY7eHfyEbII" class="footer-link bmc" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
     </div>
   </div>
 </footer>
