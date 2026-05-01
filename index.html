@@ -132,10 +132,12 @@
     .social-row { display: flex; align-items: center; gap: 10px; }
     .social-link { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 4px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-decoration: none; background: rgba(255,255,255,0.06); color: rgba(245,240,232,0.7); border: 1px solid rgba(255,255,255,0.1); transition: all 0.18s ease; }
     .social-link:hover { background: rgba(255,255,255,0.12); color: var(--cream); }
-    /* NEW: BMC icon-only button in masthead — gold accent to stand out from social links */
-    .masthead-bmc { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 30px; border-radius: 4px; background: rgba(184,146,42,0.15); color: var(--gold); border: 1px solid rgba(184,146,42,0.4); transition: all 0.18s ease; text-decoration: none; margin-left: 4px; }
+    /* NEW: BMC row — sits below social links on its own line, gold accent */
+    .masthead-bmc-row { display: flex; justify-content: flex-end; padding-top: 14px; }
+    .masthead-bmc { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 4px; background: rgba(184,146,42,0.15); color: var(--gold); border: 1px solid rgba(184,146,42,0.4); font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-decoration: none; transition: all 0.18s ease; }
     .masthead-bmc:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); transform: translateY(-1px); }
-    .masthead-bmc svg { display: block; }
+    .masthead-bmc svg { flex-shrink: 0; }
+    @media (max-width: 560px) { .masthead-bmc-row { justify-content: center; } }
 
     /* NAV */
     .site-nav { background: var(--ink-2); border-bottom: 1px solid rgba(255,255,255,0.06); position: sticky; top: 0; z-index: 100; }
@@ -360,17 +362,20 @@
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 01-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>
           Bluesky
         </a>
-        <!-- NEW: Buy Me a Coffee icon-only button — gold accent under social links -->
-        <a href="https://buy.stripe.com/6oE6oCaWY7eHfyEbII" class="masthead-bmc" target="_blank" rel="noopener" aria-label="Buy me a coffee" title="Buy me a coffee">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
-            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
-            <line x1="6" y1="2" x2="6" y2="4"/>
-            <line x1="10" y1="2" x2="10" y2="4"/>
-            <line x1="14" y1="2" x2="14" y2="4"/>
-          </svg>
-        </a>
       </div>
+    </div>
+    <!-- NEW: Buy Me a Coffee button on its own row, right-aligned below social links -->
+    <div class="masthead-bmc-row">
+      <a href="https://buy.stripe.com/6oE6oCaWY7eHfyEbII" class="masthead-bmc" target="_blank" rel="noopener" aria-label="Buy me a coffee">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+          <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+          <line x1="6" y1="2" x2="6" y2="4"/>
+          <line x1="10" y1="2" x2="10" y2="4"/>
+          <line x1="14" y1="2" x2="14" y2="4"/>
+        </svg>
+        Buy Me a Coffee
+      </a>
     </div>
   </div>
 </header>
